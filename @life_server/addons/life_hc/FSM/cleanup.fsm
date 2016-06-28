@@ -75,9 +75,9 @@ class FSM
     {
       name = "Delete_Dead_Cars";
       init = /*%FSM<STATEINIT""">*/"{" \n
-       "	if(!alive _x) then {" \n
+       "	if (!alive _x) then {" \n
        "		_dbInfo = _x getVariable[""dbInfo"",[]];" \n
-       "		if(count _dbInfo > 0) then {" \n
+       "		if (count _dbInfo > 0) then {" \n
        "			_uid = _dbInfo select 0;" \n
        "			_plate = _dbInfo select 1;" \n
        "" \n
@@ -87,16 +87,16 @@ class FSM
        "				_thread = [_this,1] call HC_fnc_asyncCall;" \n
        "			};" \n
        "		};" \n
-       "		if(!isNil ""_x"" && {!isNull _x}) then {" \n
+       "		if (!isNil ""_x"" && {!isNull _x}) then {" \n
        "			deleteVehicle _x;" \n
        "		};" \n
        "	};" \n
-       "} foreach allMissionObjects ""LandVehicle"";" \n
+       "} forEach allMissionObjects ""LandVehicle"";" \n
        "" \n
        "{" \n
-       "	if(!alive _x) then {" \n
+       "	if (!alive _x) then {" \n
        "		_dbInfo = _x getVariable[""dbInfo"",[]];" \n
-       "		if(count _dbInfo > 0) then {" \n
+       "		if (count _dbInfo > 0) then {" \n
        "			_uid = _dbInfo select 0;" \n
        "			_plate = _dbInfo select 1;" \n
        "" \n
@@ -106,20 +106,20 @@ class FSM
        "				_thread = [_this,1] call HC_fnc_asyncCall;" \n
        "			};" \n
        "		};" \n
-       "		if(!isNil ""_x"" && {!isNull _x}) then {" \n
+       "		if (!isNil ""_x"" && {!isNull _x}) then {" \n
        "			deleteVehicle _x;" \n
        "		};" \n
        "	};" \n
-       "} foreach allMissionObjects ""Air"";" \n
+       "} forEach allMissionObjects ""Air"";" \n
        "" \n
        "_cars = time;" \n
        "" \n
        "//Group cleanup." \n
        "{" \n
-       "	if(count units _x == 0 && local _x) then {" \n
+       "	if (units _x isEqualTo [] && local _x) then {" \n
        "		deleteGroup _x;" \n
        "	};" \n
-       "} foreach allGroups;"/*%FSM</STATEINIT""">*/;
+       "} forEach allGroups;"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
